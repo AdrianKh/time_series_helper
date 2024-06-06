@@ -1,6 +1,8 @@
 import numpy as np
 
 def dtw(time_series1, time_series2, use_euclidean=False):
+    if len(time_series1) != len(time_series2):
+        raise ValueError("The two time series must have the same length.")
     dtw_mat = np.full((len(time_series1) + 1, len(time_series2) + 1), np.inf)
     dtw_mat[0, 0] = 0
 
